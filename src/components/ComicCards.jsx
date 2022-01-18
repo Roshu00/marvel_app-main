@@ -8,6 +8,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import LoadingButton from "@mui/lab/LoadingButton";
+import CloseIcon from "@mui/icons-material/Close";
+import Button from "@mui/material/Button";
 import { styled } from "@mui/material";
 import { Box } from "@mui/system";
 
@@ -17,6 +19,15 @@ const LiCard = styled(Card)`
   :hover {
     transform: scale(1.05);
   }
+`;
+
+const CloseButton = styled(Button)`
+  position: absolute;
+  top: 0;
+  right: -3em;
+  border-radius: 50%;
+  min-width: 40px;
+  min-height: 40px;
 `;
 
 const CardItem = ({ title, description, id, thumbnail }) => {
@@ -33,7 +44,7 @@ const CardItem = ({ title, description, id, thumbnail }) => {
       <CardMedia
         component="img"
         image={`${thumbnail.path}/portrait_incredible.${thumbnail.extension}`}
-        alt="green iguana"
+        alt={title}
       />
       <CardContent>
         <Typography gutterBottom variant="h7" component="div">
@@ -44,7 +55,7 @@ const CardItem = ({ title, description, id, thumbnail }) => {
   );
 };
 
-const ComicCards = ({ comics, handleLoadMore, loading, search }) => {
+const ComicCards = ({ comics, handleLoadMore, loading, search, resetData }) => {
   console.log(search);
   return (
     <>
@@ -60,6 +71,7 @@ const ComicCards = ({ comics, handleLoadMore, loading, search }) => {
           <Box
             sx={{
               flexGrow: 1,
+              position: "relative",
               width: "90%",
               display: "flex",
               alignItems: "center",
@@ -75,6 +87,9 @@ const ComicCards = ({ comics, handleLoadMore, loading, search }) => {
                 description={comic.description}
               />
             ))}
+            <CloseButton onClick={resetData}>
+              <CloseIcon />
+            </CloseButton>
           </Box>
           <LoadingButton
             onClick={handleLoadMore}

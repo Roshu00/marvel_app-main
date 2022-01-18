@@ -63,7 +63,7 @@ const NavigationBar = () => {
   return (
     <Box sx={{ flexGrow: 1, marginBottom: "20px" }}>
       <AppBar position="static">
-        <Toolbar sx={{ justifyContent: "center" }}>
+        <Toolbar sx={{ justifyContent: "center", backgroundColor: "#ED1D24" }}>
           <Search>
             <SearchIconWrapper>
               <BsSearch />

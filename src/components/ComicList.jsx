@@ -20,6 +20,7 @@ const ComicList = () => {
             handleLoadMore={Comics.handleLoadMore}
             loading={Comics.buttonLoading}
             search={Comics.search}
+            resetData={Comics.resetData}
           />
         </>
       )}

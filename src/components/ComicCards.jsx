@@ -79,7 +79,7 @@ const ComicCards = ({ comics, handleLoadMore, loading }) => {
             loadingIndicator="Loading..."
             variant="outlined"
           >
-            Load More
+            Load More Comics
           </LoadingButton>
         </Container>
       ) : (

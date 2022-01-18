@@ -1,4 +1,6 @@
 import React from "react";
+// import COMPONENTS
+import Jumbotron from "./Jumbotron";
 // IMPORT MUI
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -42,7 +44,8 @@ const CardItem = ({ title, description, id, thumbnail }) => {
   );
 };
 
-const ComicCards = ({ comics, handleLoadMore, loading }) => {
+const ComicCards = ({ comics, handleLoadMore, loading, search }) => {
+  console.log(search);
   return (
     <>
       {comics.length > 0 ? (
@@ -83,7 +86,10 @@ const ComicCards = ({ comics, handleLoadMore, loading }) => {
           </LoadingButton>
         </Container>
       ) : (
-        <h1>There are no comics matching the search!!</h1>
+        <>
+          {search ? <h1>There are no comics matching the search!!</h1> : <> </>}
+          <Jumbotron />
+        </>
       )}
     </>
   );

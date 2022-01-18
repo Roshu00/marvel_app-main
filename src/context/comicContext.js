@@ -60,6 +60,7 @@ const ComicProvider = ({ children }) => {
       value={{
         handleSearch,
         handleLoadMore,
+        search,
         buttonLoading,
         loading,
         response,

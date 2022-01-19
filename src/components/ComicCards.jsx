@@ -30,7 +30,7 @@ const CloseButton = styled(Button)`
   min-height: 40px;
 `;
 
-const CardItem = ({ title, description, id, thumbnail }) => {
+const CardItem = ({ title, description, id, thumbnail, OpenComicWindow }) => {
   return (
     <LiCard
       sx={{
@@ -40,6 +40,7 @@ const CardItem = ({ title, description, id, thumbnail }) => {
         height: "340px",
         padding: "5px",
       }}
+      onClick={() => OpenComicWindow(id)}
     >
       <CardMedia
         component="img"
@@ -55,8 +56,15 @@ const CardItem = ({ title, description, id, thumbnail }) => {
   );
 };
 
-const ComicCards = ({ comics, handleLoadMore, loading, search, resetData }) => {
-  console.log(search);
+const ComicCards = ({
+  comics,
+  handleLoadMore,
+  loading,
+  search,
+  resetData,
+  OpenComicWindow,
+  chosenComic,
+}) => {
   return (
     <>
       {comics.length > 0 ? (
@@ -79,12 +87,14 @@ const ComicCards = ({ comics, handleLoadMore, loading, search, resetData }) => {
               flexWrap: "wrap",
             }}
           >
-            {comics.map((comic) => (
+            {comics.map((comic, id) => (
               <CardItem
+                id={id}
                 key={comic.id}
                 thumbnail={comic.thumbnail}
                 title={comic.title}
                 description={comic.description}
+                OpenComicWindow={OpenComicWindow}
               />
             ))}
             <CloseButton onClick={resetData}>

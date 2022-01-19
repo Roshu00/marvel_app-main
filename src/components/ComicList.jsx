@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { ComicContext } from "../context/comicContext";
 import Loader from "./Loader";
 import ComicCards from "./ComicCards";
+import ComicWindow from "./ComicWindow";
 // Import MUI
 import Container from "@mui/material/Container";
 
@@ -21,6 +22,13 @@ const ComicList = () => {
             loading={Comics.buttonLoading}
             search={Comics.search}
             resetData={Comics.resetData}
+            OpenComicWindow={Comics.OpenComicWindow}
+            chosenComic={Comics.chosenComic}
+          />
+          <ComicWindow
+            OpenComicWindow={Comics.OpenComicWindow}
+            chosenComic={Comics.chosenComic}
+            active={Comics.windowOpen}
           />
         </>
       )}

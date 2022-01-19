@@ -15,6 +15,8 @@ const ComicProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [buttonLoading, setButtonLoading] = useState(false);
   const [search, setSearch] = useState("");
+  const [chosenComic, setChosenComic] = useState({});
+  const [windowOpen, setWindowOpen] = useState(false);
 
   const handleSearch = async (search) => {
     try {
@@ -28,6 +30,11 @@ const ComicProvider = ({ children }) => {
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const OpenComicWindow = async (id) => {
+    setChosenComic(data.results[id]);
+    setWindowOpen(true);
   };
 
   const handleLoadMore = async () => {
@@ -64,7 +71,8 @@ const ComicProvider = ({ children }) => {
   useEffect(() => {
     console.log(response);
     console.log("data", data);
-  }, [response, data]);
+    console.log("ChosenComic", chosenComic);
+  }, [response, data, chosenComic]);
 
   return (
     <ComicContext.Provider
@@ -77,6 +85,9 @@ const ComicProvider = ({ children }) => {
         response,
         data,
         resetData,
+        OpenComicWindow,
+        chosenComic,
+        windowOpen,
       }}
     >
       {children}

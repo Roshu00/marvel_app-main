@@ -32,9 +32,14 @@ const ComicProvider = ({ children }) => {
     }
   };
 
-  const OpenComicWindow = async (id) => {
+  const OpenComicWindow = (id) => {
     setChosenComic(data.results[id]);
     setWindowOpen(true);
+  };
+  const CloseComicWindow = () => {
+    setWindowOpen(false);
+    setChosenComic({});
+    return console.log("close");
   };
 
   const handleLoadMore = async () => {
@@ -86,6 +91,7 @@ const ComicProvider = ({ children }) => {
         data,
         resetData,
         OpenComicWindow,
+        CloseComicWindow,
         chosenComic,
         windowOpen,
       }}

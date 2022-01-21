@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import ComicList from "./components/ComicList";
 import NavigationBar from "./components/NavigationBar";
 import ComicProvider from "./context/comicContext";

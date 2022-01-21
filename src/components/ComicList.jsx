@@ -27,6 +27,7 @@ const ComicList = () => {
           />
           <ComicWindow
             OpenComicWindow={Comics.OpenComicWindow}
+            CloseComicWindow={Comics.CloseComicWindow}
             chosenComic={Comics.chosenComic}
             active={Comics.windowOpen}
           />

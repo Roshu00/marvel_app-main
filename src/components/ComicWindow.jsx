@@ -5,6 +5,7 @@ import { Box, Container } from "@mui/material";
 import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
 import { styled } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 const CloseButton = styled(Button)`
   position: absolute;
@@ -15,6 +16,34 @@ const CloseButton = styled(Button)`
   min-height: 70px;
   z-index: 1;
 `;
+
+const WiondowHeader = ({ thumbnail, title, description }) => {
+  return (
+    <Container
+      sx={{
+        width: "95%",
+        display: "flex",
+        flexWrap: "nowrap",
+      }}
+    >
+      <img
+        src={`${thumbnail.path}/portrait_incredible.${thumbnail.extension}`}
+      />
+      <Container
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          padding: "10px",
+          maxHeight: "324px",
+        }}
+      >
+        <Typography variant="h4">{title}</Typography>
+        <Typography variant="p">{description}</Typography>
+      </Container>
+    </Container>
+  );
+};
+
 const ComicWindow = ({
   chosenComic,
   setChosenComic,
@@ -46,6 +75,15 @@ const ComicWindow = ({
           overflowY: "scroll",
         }}
       >
+        {!active ? (
+          <></>
+        ) : (
+          <WiondowHeader
+            thumbnail={chosenComic.thumbnail}
+            title={chosenComic.title}
+            description={chosenComic.description}
+          />
+        )}
         <CloseButton onClick={() => CloseComicWindow()}>
           <CloseIcon fontSize="large" />
         </CloseButton>

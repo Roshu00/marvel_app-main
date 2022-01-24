@@ -6,6 +6,8 @@ import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
 import { styled } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import DropDown from "./DropDown";
+import List from "@mui/material/List";
 
 const CloseButton = styled(Button)`
   position: absolute;
@@ -15,6 +17,13 @@ const CloseButton = styled(Button)`
   min-width: 70px;
   min-height: 70px;
   z-index: 1;
+`;
+
+const DropDownBox = styled(List)`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 `;
 
 const WiondowHeader = ({ thumbnail, title, description }) => {
@@ -38,7 +47,9 @@ const WiondowHeader = ({ thumbnail, title, description }) => {
         }}
       >
         <Typography variant="h4">{title}</Typography>
-        <Typography variant="p">{description}</Typography>
+        <Typography variant="p" sx={{ overflowY: "scroll" }}>
+          {description}
+        </Typography>
       </Container>
     </Container>
   );
@@ -78,11 +89,35 @@ const ComicWindow = ({
         {!active ? (
           <></>
         ) : (
-          <WiondowHeader
-            thumbnail={chosenComic.thumbnail}
-            title={chosenComic.title}
-            description={chosenComic.description}
-          />
+          <>
+            <WiondowHeader
+              thumbnail={chosenComic.thumbnail}
+              title={chosenComic.title}
+              description={chosenComic.description}
+            />
+            <DropDownBox>
+              <DropDown
+                title="Comics"
+                available={chosenComic.comics.available}
+                items={chosenComic.comics.items}
+              />
+              <DropDown
+                title="Characters"
+                available={chosenComic.characters.available}
+                items={chosenComic.characters.items}
+              />
+              <DropDown
+                title="Creators"
+                available={chosenComic.creators.available}
+                items={chosenComic.creators.items}
+              />
+              <DropDown
+                title="Stories"
+                available={chosenComic.stories.available}
+                items={chosenComic.stories.items}
+              />
+            </DropDownBox>
+          </>
         )}
         <CloseButton onClick={() => CloseComicWindow()}>
           <CloseIcon fontSize="large" />

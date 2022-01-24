@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { getComicsStartWith, loadMoreComics } from "../helpers/comicApi";
 
 export const ComicContext = React.createContext();
@@ -39,7 +39,6 @@ const ComicProvider = ({ children }) => {
   const CloseComicWindow = () => {
     setWindowOpen(false);
     setChosenComic({});
-    return console.log("close");
   };
 
   const handleLoadMore = async () => {
@@ -72,12 +71,6 @@ const ComicProvider = ({ children }) => {
       total: 0,
     });
   };
-
-  useEffect(() => {
-    console.log(response);
-    console.log("data", data);
-    console.log("ChosenComic", chosenComic);
-  }, [response, data, chosenComic]);
 
   return (
     <ComicContext.Provider

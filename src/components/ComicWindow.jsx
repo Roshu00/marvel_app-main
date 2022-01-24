@@ -37,6 +37,7 @@ const WiondowHeader = ({ thumbnail, title, description }) => {
     >
       <img
         src={`${thumbnail.path}/portrait_incredible.${thumbnail.extension}`}
+        alt="thumbnail"
       />
       <Container
         sx={{

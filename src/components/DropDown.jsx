@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 //Import MUI
 import Typography from "@mui/material/Typography";
-import { Box, Container } from "@mui/material";
 import Collapse from "@mui/material/Collapse";
 import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
@@ -15,7 +14,8 @@ const DropDown = ({ title, available, items }) => {
       sx={{ width: "100%", flexDirection: "column", userSelect: "none" }}
     >
       <Typography
-        variant="p"
+        color={active ? "primary" : ""}
+        variant="h6"
         onClick={(acive) => setActive(!active)}
         sx={{
           display: "flex",
@@ -29,8 +29,13 @@ const DropDown = ({ title, available, items }) => {
       <Collapse in={active}>
         <List>
           {items.map((item, id) => (
-            <ListItem key={id}>
-              {item.name} {item.role}
+            <ListItem
+              divider
+              key={id}
+              sx={{ display: "flex", flexDirection: "column" }}
+            >
+              <Typography variant="h6">{item.name}</Typography>
+              <Typography variant="p">{item.role}</Typography>
             </ListItem>
           ))}
         </List>

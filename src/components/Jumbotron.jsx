@@ -41,7 +41,8 @@ const Jumbotron = () => {
           variant="h4"
           sx={{ textAlign: "center", margin: "20px", color: "#101010 " }}
         >
-          App created to help you find information about Marvel comics!
+          App created to help you find information about{" "}
+          <span style={{ color: "#ED1D24" }}>Marvel</span> comics!
         </Typography>
         <List
           sx={{

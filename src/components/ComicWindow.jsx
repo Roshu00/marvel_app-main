@@ -49,19 +49,16 @@ const WiondowHeader = ({ thumbnail, title, description }) => {
       >
         <Typography variant="h4">{title}</Typography>
         <Typography variant="p" sx={{ overflowY: "scroll" }}>
-          {description}
+          {description
+            ? description
+            : "there is no description about this comic"}
         </Typography>
       </Container>
     </Container>
   );
 };
 
-const ComicWindow = ({
-  chosenComic,
-  setChosenComic,
-  active,
-  CloseComicWindow,
-}) => {
+const ComicWindow = ({ chosenComic, active, CloseComicWindow }) => {
   return (
     <Container
       sx={{

@@ -12,7 +12,6 @@ import MouseIcon from "@mui/icons-material/Mouse";
 import AddIcon from "@mui/icons-material/Add";
 import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
-import ListSubheader from "@mui/material/ListSubheader";
 
 const JumbotronItem = ({ imageUrl, title, text }) => {
   return (

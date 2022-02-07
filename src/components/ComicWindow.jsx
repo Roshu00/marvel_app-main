@@ -43,7 +43,7 @@ const WiondowHeader = ({ thumbnail, title, description }) => {
       }}
     >
       <img
-        src={`${thumbnail.path}/portrait_incredible.${thumbnail.extension}`}
+        src={`${thumbnail.path}/portrait_incredible.${thumbnail?.extension}`}
         alt="thumbnail"
       />
       <Container
@@ -96,30 +96,30 @@ const ComicWindow = ({ chosenComic, active, CloseComicWindow }) => {
         ) : (
           <>
             <WiondowHeader
-              thumbnail={chosenComic.thumbnail}
-              title={chosenComic.title}
-              description={chosenComic.description}
+              thumbnail={chosenComic?.thumbnail}
+              title={chosenComic?.title}
+              description={chosenComic?.description}
             />
             <DropDownBox>
               <DropDown
                 title="Comics"
-                available={chosenComic.comics.available}
-                items={chosenComic.comics.items}
+                available={chosenComic?.comics.available}
+                items={chosenComic?.comics.items}
               />
               <DropDown
                 title="Characters"
-                available={chosenComic.characters.available}
-                items={chosenComic.characters.items}
+                available={chosenComic?.characters.available}
+                items={chosenComic?.characters.items}
               />
               <DropDown
                 title="Creators"
-                available={chosenComic.creators.available}
-                items={chosenComic.creators.items}
+                available={chosenComic?.creators.available}
+                items={chosenComic?.creators.items}
               />
               <DropDown
                 title="Stories"
-                available={chosenComic.stories.available}
-                items={chosenComic.stories.items}
+                available={chosenComic?.stories.available}
+                items={chosenComic?.stories.items}
               />
             </DropDownBox>
           </>

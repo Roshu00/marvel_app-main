@@ -55,7 +55,10 @@ const WiondowHeader = ({ thumbnail, title, description }) => {
         }}
       >
         <Typography variant="h4">{title}</Typography>
-        <Typography variant="p" sx={{ overflowY: "scroll" }}>
+        <Typography
+          variant="p"
+          sx={{ overflowY: "scroll", scrollbarWidth: "0" }}
+        >
           {description
             ? description
             : "there is no description about this comic"}

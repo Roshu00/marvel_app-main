@@ -8,6 +8,7 @@ import { styled } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import DropDown from "./DropDown";
 import List from "@mui/material/List";
+import { useTheme } from "@mui/material/styles";
 
 const CloseButton = styled(Button)`
   position: absolute;
@@ -27,12 +28,18 @@ const DropDownBox = styled(List)`
 `;
 
 const WiondowHeader = ({ thumbnail, title, description }) => {
+  const theme = useTheme();
+
   return (
     <Container
       sx={{
         width: "95%",
         display: "flex",
         flexWrap: "nowrap",
+        [theme.breakpoints.down("sm")]: {
+          flexDirection: "column",
+          alignItems: "center",
+        },
       }}
     >
       <img

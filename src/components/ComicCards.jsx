@@ -49,7 +49,7 @@ const CardItem = ({ title, description, id, thumbnail, OpenComicWindow }) => {
       />
       <CardContent>
         <Typography gutterBottom variant="h7" component="div">
-          {title}
+          {title.length > 30 ? title?.slice(0, 30) : title}
         </Typography>
       </CardContent>
     </LiCard>

@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 
 //Importing MUI
 import { Box, Container } from "@mui/material";
@@ -130,6 +131,7 @@ const ComicWindow = ({ chosenComic, active, CloseComicWindow }) => {
         <CloseButton onClick={() => CloseComicWindow()}>
           <CloseIcon fontSize="large" />
         </CloseButton>
+        <Footer />
       </Box>
     </Container>
   );

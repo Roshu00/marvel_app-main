@@ -5,7 +5,7 @@ import { styled } from "@mui/material";
 const FooterContainer = styled(Box)`
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
   background-color: #161616;
   color: #fff;
   height: 60px;
@@ -19,7 +19,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <p>@Marvel api provided this informations</p>
-      <p>Site made form practice by Roshu</p>
+      <p>Site made for practice by Roshu</p>
     </FooterContainer>
   );
 };
